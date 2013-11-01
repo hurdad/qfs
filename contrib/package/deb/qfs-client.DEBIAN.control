@@ -3,5 +3,6 @@ Version: 1.0-1
 Section: base
 Priority: optional
 Architecture: amd64
+Depends: libboost_regex, libssl
 Description: This package contains the Quantcast Distributed Filesystem client tools and libraries
 Maintainer: Alexander Hurd <hurdad@gmail.com>
