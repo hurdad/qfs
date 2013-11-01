@@ -4,4 +4,4 @@ Section: base
 Priority: optional
 Architecture: amd64
 Description: This package contains the Quantcast Distributed Filesystem meta server.
-
+Maintainer: Alexander Hurd <hurdad@gmail.com>

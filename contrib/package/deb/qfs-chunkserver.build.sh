@@ -10,7 +10,7 @@ cd $SOURCE_DIR
 if [ -d qfs ]; then
     rm -rf qfs
 fi
-git clone https://github.com/quantcast/qfs.git
+git clone https://github.com/hurdad/qfs.git
 
 #BUILD
 cd qfs
