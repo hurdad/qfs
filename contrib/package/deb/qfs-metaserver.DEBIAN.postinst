@@ -5,18 +5,16 @@ set -e
 case "$1" in
     configure)
 
-# create qfs user if it isn't already there
-	if ! /usr/bin/id qfs &>/dev/null; then
-		/usr/sbin/useradd -r -d /opt/qc/qfs/metaserver -s /bin/sh -c "qfs" qfs || \
-		%logmsg "Unexpected error adding user \"qfs\"."
+	# create qfs user if it isn't already there
+	if ! getent passwd qfs >/dev/null; then
+		/usr/sbin/useradd -r -d /opt/qc/qfs/ -s /bin/sh -c "qfs" qfs
 	fi
 
-# ensure /var/lib/colord has appropriate permissions
+	# ensure /opt/qc/qfs/metaserver has appropriate permissions
     chown -R qfs:qfs /opt/qc/qfs/metaserver
 
     ;;
 esac    
-
 
 
 exit 0

@@ -17,9 +17,9 @@ cd qfs
 make release
 
 #INSTALL
-rm -rf $QFS_BUILD_ROOT$NAME_$VERSION
+sudo rm -rf $QFS_BUILD_ROOT$NAME_$VERSION
 mkdir -p $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/bin
-mkdir -p $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/sbin
+mkdir -p $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/log
 mkdir -p $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/conf
 install -m 755 $SOURCE_DIR/qfs/build/release/bin/metaserver $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/bin
 install -m 755 $SOURCE_DIR/qfs/build/release/bin/filelister $QFS_BUILD_ROOT$NAME"_"$VERSION$QFS_INSTALL_PREFIX/bin
@@ -31,6 +31,8 @@ install -m 644 $SOURCE_DIR/qfs/conf/MetaServer.prp $QFS_BUILD_ROOT$NAME"_"$VERSI
 #ADD DEBIAN/control
 mkdir -p $QFS_BUILD_ROOT$NAME"_"$VERSION/DEBIAN
 cp $SOURCE_DIR/qfs/contrib/package/deb/qfs-metaserver.DEBIAN.control $QFS_BUILD_ROOT$NAME"_"$VERSION/DEBIAN/control
+cp $SOURCE_DIR/qfs/contrib/package/deb/qfs-metaserver.DEBIAN.postinst $QFS_BUILD_ROOT$NAME"_"$VERSION/DEBIAN/postinst
+chmod 775 $QFS_BUILD_ROOT$NAME"_"$VERSION/DEBIAN/postinst
 
 #MODIFY
 sudo chown -R root:root $QFS_BUILD_ROOT$NAME"_"$VERSION
